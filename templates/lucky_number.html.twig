@@ -1,0 +1,20 @@
+{# templates/lucky_number.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block main %}
+    <div class="lucky" style="background-image: url({{ asset('img/lucky-background.jpg') }})">
+        <h1>Lucky number</h1>
+        <a href="{{ asset('img/lucky.jpg') }}">
+            <img src="{{ asset('img/lucky.jpg') }}" alt="PHP image">
+        </a>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Photo by <a href="https://unsplash.com/@amybethreed?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="text-decoration: none; color: #555;">Amy Reed</a> on <a href="https://unsplash.com/photos/49ZXvCLerUo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="text-decoration: none; color: #555;">Unsplash</a></p>
+        <p>Welcome to my awesome magical homepage.</p>
+    
+    
+        <p class="number">Your current lucky number is: <span class="number">{{ number }}</span></p>
+    </div>
+    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Background image by <a href="https://unsplash.com/@cmzw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="text-decoration: none; color: #555;">Mingwei Lim</a> on <a href="https://unsplash.com/photos/Q1Us6ITDPeo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="text-decoration: none; color: #555;">Unsplash</a></p>
+{% endblock %}

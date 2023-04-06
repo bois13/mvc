@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        <header class="site-header" style="background-image: url({{ asset('img/background.jpg') }})">
+            <span class="site-title">My report page</span>
+        </header>
+        <nav class="navbar">
+            <ul class="navbar">
+                <li{% if app.request.attributes.get('_route') == 'home' %} class="active"{% endif %}><a href="{{ path('home') }}">Home</a></li>
+                <li{% if app.request.attributes.get('_route') == 'about' %} class="active"{% endif %}><a href="{{ path('about') }}">About</a></li>
+                <li{% if app.request.attributes.get('_route') == 'report' %} class="active"{% endif %}><a href="{{ path('report') }}">Report</a></li>
+                <li{% if app.request.attributes.get('_route') == 'lucky' %} class="active"{% endif %}><a href="{{ path('lucky') }}">Lucky number</a></li>
+                <li><a href="{{ path('quote') }}">Quote</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+        <footer class="site-footer">
+            <p>Copyright © 2023 Fredrik Boström</p>
+        </footer>
+    </body>
+</html>

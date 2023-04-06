@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block main %}
+    <h1>About</h1>
+    
+
+    <div class="container">
+        <div class="column-1">
+            <h2>Objektorienterade webbteknologier</h2>
+            <a href="{{ asset('img/php.jpg') }}">
+                <img src="{{ asset('img/php.jpg') }}" alt="PHP image">
+            </a>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Photo by <a href="https://unsplash.com/@benofthenorth?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="text-decoration: none; color: #555;">Ben Griffiths</a> on <a href="https://unsplash.com/photos/Bj6ENZDMSDY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="text-decoration: none; color: #555;">Unsplash</a></p>
+
+            <p>Kursern är en webbporgrammeringskurs vid BTH som har fått smeknamnnet MVC, Model-View-Controller.</p>
+        
+            <p>Syftet med kursen att man ska utveckla sin kunskap om objektorienterad programmering framförallt med PHP, webbramverk, enhetstestning, kodkvalitet och databaskopplingar med objekt relational mapping (ORM).
+                
+            <p>Under kursen används populära webbutvecklingsverktyg och ramverk, som Symfony och Twig. </p>
+        
+            <p>Kursen består av flera kursmoment som var och en fokuserar på en specifik aspekt av MVC-webbutveckling.</p>
+        
+            <p>Kursen omfattar följande områden:</p>
+            
+            <ul>
+                <li>Programmering i webbmiljö, syntax, semantik, koppling mot databaser, datastrukturer och inbyggda funktioner.</li>
+                <li>Objektorienterad programmering i PHP med språkkonstruktioner och begrepp. Objektorientering som sätt att strukturera och återanvända kod. Enkla designmönster.</li>
+                <li>SQL med en databas tillsammans med PHP Data Objects.</li>
+                <li>Utveckling av webbapplikationer i ett ramverk där tekniker såsom webbserver (Apache), PHP, HTML, CSS, och SQL integreras tillsammans med ett webbaserat ramverk.</li>
+                <li>Användning av verktyg och tekniker som lämpar sig för utveckling av webbapplikationer, tex UNIX/Linux, installation på extern webbserver, ssh, ftp/sftp, databasklienter såsom PHPMyAdmin, MySQL Workbench och kommandoklienter.</li>
+            </ul>
+        </div>
+        <div class="column-2">
+            <h2>Resources</h2>
+            <p><a href="https://github.com/dbwebb-se/mvc">Kursens Git-repo</a></p>
+            <p><a href="https://github.com/bois13/mvc">Mitt Git-repo</a></p>
+        </div>
+    </div>
+
+{% endblock %}
