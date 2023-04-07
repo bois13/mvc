@@ -1,5 +1,14 @@
 {% apply markdown_to_html %}
     <h2 id="kmom01">Kmom01</h2>
 
-    This is the reports from each kmom.
+    Jag har studerat webbprogrammering i snart ett år nu och har hunnit stöta på objektorienterad programmering, bland annat genom Python och JavaScript. Objektorienterad programmering med PHP är nytt för mig men i och med att jag har med mig en liten grund in i kursen så känns en del begrepp och tankesätt redan bekanta.
+
+    Inom PHP kan man skapa egna klasser och objekt och följer de generella förutsättningarna inom objektorienterad programmering. En klass är en slags mall där man specificerar vad man vill ha för funktionalitet. I klassen kan man ha funktioner som då kallas metoder. Man kan även ha variabler, eller properties, inom en klass som kan vara publika, privata och skyddade. När man instansifierar (skapar) ett nytt objekt av en klass så gör man det utifrån den mallen som klassen dikterar och man får då ett objekt.
+
+    Jag uppfattar kodbasen i uppgiften som ganska kort och koncis även om strukturen för Symfony är ganska omfattande. Jag får med funktionalitet i controller-delen då jag skapar en ny klass som exempelvis ReportControllerTwig som ärver ifrån AbstractController som tillhandahåller en del basfunktionalitet för att rendera templates och hantera HTTP-requests. På varje metod har jag satt ett attribut som förenklar processen med att lägga till route-information. Namnen som anges för varje route kan sen användas för att generera URLs för aktuell route. När en route nås, returnerar motsvarande metod ett response-objekt som renderar en specifik Twig template, med eller utan data som skickas med som ett argument.
+
+    PHP The Right Way-guiden är ganska omfattande och går igenom allt från grunderna för att komma igång till mer avancerade koncept med PHP. Några delar som jag tycker är särskilt intressanta och värdefulla handlar om bästa praxis för att skriva ren, underhållbar kod, genom att exempelvis följa PSR-kodningsstandarderna. Detta är ju något som vi också ska titta på i kursen längre fram, dvs hur man skriver snygg kod. Även vägledningen kring databaser och bästa praxis för att exempelvis skydda sig mot SQL-injections.
+
+    Min TIL för detta kursmoment är hur man använder ”->” inom objektorienterad programmering med PHP. Jag har sett detta tidigare men kan nu se funktionaliteten i ett annat perspektiv då jag tar med mig lite mer kunskap om objektorienterad programmering in i denna kurs.
+
 {% endapply %}
