@@ -20,10 +20,8 @@ class CardHand
     }
 
     public function draw(int $number, DeckOfCards $deck): void
-    {
-        for ($i=0; $i <$number; $i++) { 
-            $this->hand[] = $deck->draw();
-        }
+    { 
+        $this->hand = $deck->draw($number);
     }
 
     public function getNumberCards(): int

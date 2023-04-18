@@ -15,11 +15,11 @@ class DeckOfCards
         'spades',
     ];
 
-    private const VALUES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
+    private const VALUES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
 
     public function __construct()
     {
-        $this->deck = [];
+        // $this->deck = [];
 
         foreach (self::SUITS as $suit) {
             foreach (self::VALUES as $value) {
@@ -43,9 +43,13 @@ class DeckOfCards
         return count($this->deck);
     }
 
-    public function draw(): CardGraphic
+    public function draw(int $num=1): array
     {
-        return array_shift($this->deck);
+        $cards = [];
+        for ($i=0; $i < $num; $i++) { 
+            $cards[] = array_shift($this->deck);
+        }
+        return $cards;
     }
 
     public function getArray(): array

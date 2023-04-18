@@ -4,11 +4,11 @@ namespace App\Card;
 
 
 class CardGraphic extends Card {
-    private $representation = [
-        'clubs' => '&clubs;',
-        'diamonds' => '&diams;',
-        'hearts' => '&hearts;',
-        'spades' => '&spades;',
+    private const REPRESENTATION = [
+        'clubs' => "\xE2\x99\xA3",
+        'diamonds' => "\xE2\x99\xA6",
+        'hearts' => "\xE2\x99\xA5",
+        'spades' => "\xE2\x99\xA0",
     ];
 
     public function __construct($value, $suit)
@@ -18,7 +18,7 @@ class CardGraphic extends Card {
 
     public function getString(): string
     {
-        return '[' . $this->value . $this->representation[$this->suit] . ']';
+        return '[' . $this->value . self::REPRESENTATION[$this->suit] . ']';
     }
 }
 
