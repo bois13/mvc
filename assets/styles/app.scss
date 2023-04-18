@@ -77,6 +77,11 @@ main {
     min-height: 80vh;
 }
 
+.card-links {
+    display: flex;
+    flex-direction: column;
+}
+
 .site-footer {
     display: flex;
     justify-content: center;
