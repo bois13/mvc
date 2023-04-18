@@ -5,7 +5,10 @@
 {% block main %}
     <h1>{{ title }}</h1>
 
-    <p>{{ deck }}</p>
+    <p>You draw: {{ hand }}</p>
+
+    <p>There are {{ count }} remaining cards in the deck:</p>
+    <p> {{ deck }}</p>
 
     {% include "card_links.html.twig" %}
 {% endblock %}

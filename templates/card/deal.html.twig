@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block main %}
+    <h1>{{ title }}</h1>
+    {% for hand in hands %}
+        <h2>Player {{ loop.index }}</h2>
+        <p>{{ hand.getString() }}</p>
+    {% endfor %}
+
+    <p>There are {{ count }} remaining cards in the deck:</p>
+    <p> {{ deck }}</p>
+
+    {% include "card_links.html.twig" %}
+{% endblock %}

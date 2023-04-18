@@ -1,11 +1,20 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block main %}
-    <h1>Card page</h1>
+    <h1>{{ title }}</h1>
 
-    <p>Här berättar jag om mina klasser och hur jag har tänkt</p>
+    <p>Jag började med att skapa klassen ”Card”. Den har två attribut, ”value” och ”suit”. Jag skapade metoder för att hämta value och suit. Klassen har även en klasskonstant, ”RANK”. RANK är en array från 2 till A för att man lätt ska kunna hämta ett korts rank. Det finns också en metod som kan hämta kortets värden som en sträng.</p>
+
+    <p>Jag skapade även klassen ”CardGraphic” som ärver ifrån ”Card”. CardGraphic har en klasskonstant ”REPRESENTATION” som används för att skapa sträng med UTF-8 utifrån vilken svit kortet har. Där finns en metod som gör detta och returnerar sen sträng.</p>
+        
+    <p>Klassen ”DeckOfCards” ska motsvara en klassisk kortlek. Klassen har två klasskonstanter. ”SUITS” för de fyra sviterna och ”VALUES” för alla korts möjliga värden. Dessa konstanter används i konstruktorn för att loopa igenom och skapa en kortlek med alla 52 kort. Jag skapade metoder för att lägga till enskilda kort, hämta antal kort i kortleken och dra ett kort. Jag la även till metoder för att hämta alla kort i kortleken som en array och som en konkatenerad sträng.</p>
+        
+    <p>Klassen ”CardHand” är en hand med specificerat antal kort i. Klassen har liknande metoder som DeckOfCards.</p>
 
     <p>UML-diagram</p>
+
+
+    {% include "card_links.html.twig" %}
 {% endblock %}
