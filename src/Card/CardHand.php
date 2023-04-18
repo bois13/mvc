@@ -21,7 +21,7 @@ class CardHand
 
     public function draw(int $number, DeckOfCards $deck): void
     { 
-        $this->hand = $deck->draw($number);
+        $this->hand = $deck->draw(min($number, $deck->getNumberCards()));
     }
 
     public function getNumberCards(): int

@@ -16,8 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class CardController extends AbstractController
 {
     #[Route("/card", name: "card_start")]
-    public function card(): Response
+    public function card(SessionInterface $session): Response
     {
+        self::getSessionDeck($session);
         $data = [
             'title'=>'Card'
         ];
@@ -26,9 +27,9 @@ class CardController extends AbstractController
     }
 
     #[Route("/card/deck", name: "card_deck")]
-    public function deck(): Response
+    public function deck(SessionInterface $session): Response
     {
-        $deck = new DeckOfCards;
+        $deck = self::getSessionDeck($session);
         $data = [
             'title'=>'Card Deck',
             'deck'=>$deck->getString()
@@ -38,9 +39,10 @@ class CardController extends AbstractController
     }
 
     #[Route("/card/deck/shuffle", name: "card_shuffle")]
-    public function shuffle(): Response
+    public function shuffle(SessionInterface $session): Response
     {
-        $deck = new DeckOfCards;
+        $session->remove('deck');
+        $deck = self::getSessionDeck($session);
         $deck->shuffle();
         $data = [
             'title'=>'Shuffled Card Deck',
@@ -51,9 +53,10 @@ class CardController extends AbstractController
     }
 
     #[Route("/card/deck/draw", name: "card_draw")]
-    public function draw(): Response
+    public function draw(SessionInterface $session): Response
     {
-        $deck = new DeckOfCards;
+
+        $deck = self::getSessionDeck($session);
         $deck->shuffle();
         $hand = new CardHand;
         $hand->draw(1, $deck);
@@ -68,9 +71,9 @@ class CardController extends AbstractController
     }
 
     #[Route("/card/deck/draw/{num<\d+>}", name: "draw_number")]
-    public function drawNumber(int $num): Response
+    public function drawNumber(int $num, SessionInterface $session): Response
     {
-        $deck = new DeckOfCards;
+        $deck = self::getSessionDeck($session);
         $deck->shuffle();
         $hand = new CardHand;
         $hand->draw($num, $deck);
@@ -85,9 +88,9 @@ class CardController extends AbstractController
     }
 
     #[Route("/card/deck/deal/{players<\d+>}/{cards<\d+>}", name: "card_deal")]
-    public function deal(int $players, int $cards): Response
+    public function deal(int $players, int $cards, SessionInterface $session): Response
     {
-        $deck = new DeckOfCards;
+        $deck = self::getSessionDeck($session);
         $deck->shuffle();
 
         $hands = [];
@@ -107,4 +110,14 @@ class CardController extends AbstractController
         return $this->render('card/deal.html.twig', $data);
     }
 
+    public function getSessionDeck(SessionInterface $session): DeckOfCards
+    {
+        $deck = $session->get('deck');
+        if (!$deck) {
+            $deck = new DeckOfCards;
+            $session->set('deck', $deck);
+        }
+
+        return $deck;
+    }
 }
