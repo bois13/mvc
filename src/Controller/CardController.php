@@ -30,9 +30,11 @@ class CardController extends AbstractController
     public function deck(SessionInterface $session): Response
     {
         $deck = self::getSessionDeck($session);
+        $deck->sort();
         $data = [
             'title'=>'Card Deck',
-            'deck'=>$deck->getString()
+            'deck'=>$deck->getString(),
+            'count'=>$deck->getNumberCards()
         ];
 
         return $this->render('card/deck.html.twig', $data);
@@ -41,12 +43,18 @@ class CardController extends AbstractController
     #[Route("/card/deck/shuffle", name: "card_shuffle")]
     public function shuffle(SessionInterface $session): Response
     {
-        $session->remove('deck');
         $deck = self::getSessionDeck($session);
+
+        if ($deck->getNumberCards() === 0) {
+            $session->remove('deck');
+            $deck = self::getSessionDeck($session);
+        }
+
         $deck->shuffle();
         $data = [
             'title'=>'Shuffled Card Deck',
-            'deck'=>$deck->getString()
+            'deck'=>$deck->getString(),
+            'count'=>$deck->getNumberCards()
         ];
 
         return $this->render('card/deck.html.twig', $data);
