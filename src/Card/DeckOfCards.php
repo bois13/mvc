@@ -28,6 +28,17 @@ class DeckOfCards
         }
     }
 
+    public function sort(): void
+    {
+        usort($this->deck, function($a, $b) {
+            if ($a->getSuit() == $b->getSuit()) {
+                return array_search($a->getValue(), self::VALUES) - array_search($b->getValue(), self::VALUES);
+            } else {
+                return array_search($a->getSuit(), self::SUITS) - array_search($b->getSuit(), self::SUITS);
+            }
+        });
+    }
+
     public function add($value, $suit): void
     {
         $this->deck[] = new CardGraphic($value, $suit);
