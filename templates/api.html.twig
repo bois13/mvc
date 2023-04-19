@@ -1,0 +1,105 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block main %}
+    <h1>{{ title }}</h1>
+
+    <h2>Routes</h2>
+    <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Path</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <div class="get">GET</div>
+            </td>
+            <td>
+                <a href="{{ path('quote') }}">Quote</a>
+                <pre>api/quote</pre>
+            </td>
+            <td>Get a random quote of wisdom in JSON format</td>
+          </tr>
+          <tr>
+            <td>
+                <div class="get">GET</div>
+            </td>
+            <td>
+                <a href="{{ path('json_deck') }}">Deck</a>
+                {# <form method="get" action="">
+                    <input type="submit" name="deck" value="Deck"
+                    onClick="this.form.action='{{ path('json_deck') }}';">
+                </form> #}
+                <pre>api/deck</pre>
+            </td>
+            <td>Get deck of cards sorted by suit and value in JSON format</td>
+          </tr>
+          <tr>
+            <td>
+                <div class="post">POST</div>
+            </td>
+            <td>
+                <form method="post" action="">
+                    <input type="submit" name="shuffle" value="Shuffle"
+                    onClick="this.form.action='{{ path('json_card_shuffle') }}';">
+                </form>
+                <pre>api/deck/shuffle</pre>
+            </td>
+            <td>Shuffle the deck of cards and get the deck in JSON format</td>
+          </tr>
+          <tr>
+            <td>
+                <div class="post">POST</div>
+            </td>
+            <td>
+                <form method="post" action="">
+                    <input type="submit" name="draw" value="Draw"
+                    onClick="this.form.action='{{ path('json_card_draw') }}';">
+                </form>
+                <pre>api/deck/draw</pre>
+            </td>
+            <td>Draws 1 card from the deck, get the number of cards left in the deck and displays them in a JSON format. 
+                The deck is saved in the session, so if you call this route several times, the number of cards in the deck is reduced.</td>
+          </tr>
+          <tr>
+            <td>
+                <div class="post">POST</div>
+            </td>
+            <td>
+                <form method="post" action="{{ path('json_card_draw') }}" id="draw-form">
+                    <input type="text" name="number" placeholder="Number">
+                    <input type="submit" name="draw" value="Draw"
+                        onClick="document.getElementById('draw-form').action = '{{ path('json_card_draw') }}/' + this.form.elements[0].value;">
+                </form>
+                <pre>api/deck/draw/:number</pre>
+            </td>
+            
+            <td>Draws :number cards from the deck, get the number of cards left in the deck and displays them in a JSON format. 
+                The deck is saved in the session, so if you call this route several times, the number of cards in the deck is reduced.</td>
+          </tr>
+          <tr>
+            <td>
+                <div class="post">POST</div>
+            </td>
+            <td>
+                <form method="post" action="/api/deck/deal/" id="deal-form">
+                    <input type="text" name="players" placeholder="Players">
+                    <input type="text" name="cards" placeholder="Cards">
+                    <input type="submit" name="deal" value="Deal"
+                        onClick="document.getElementById('deal-form').action = '/api/deck/deal/' + this.form.elements[0].value + '/' + this.form.elements[1].value;">
+                </form>
+                
+                <pre>api/deck/deal/:players/:cards</pre>
+            </td>
+            <td>Deals a number of :cards from the deck to a number of :players and displays the cards that each player has received and the number of cards left in the deck in JSON format.</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    
+{% endblock %}
