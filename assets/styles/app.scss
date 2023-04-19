@@ -147,3 +147,36 @@ img {
     padding: 0.7rem;
     margin-bottom: 1.4rem;
 }
+
+th {
+    text-align: left;
+}
+
+th,
+td {
+    padding: 0.5rem;
+}
+
+table td:first-child {
+    
+}
+
+.get {
+    background-color: #008BFA;
+}
+
+.post {
+    background-color: #15b946;
+}
+
+.get,
+.post {
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+input {
+    padding: 0.2rem;
+}
