@@ -1,5 +1,25 @@
 {% apply markdown_to_html %}
     <h2 id="kmom02">Kmom02</h2>
 
-    This is the reports from each kmom.
+    ”Arv” är ett sätt att skapa nya klasser baserat på andra klasser. Den nya klassen, ”child class”, ärver då befintliga attribut och metoder ifrån ”parent class”. Man kan välja att lägga till attribut och metoder i child class och man kan även skriva över befintliga som ärvts. Beroende hur det definierats i parent class så kan attribut och metoder ärvas på olika sätt. De som är publika ärvs och kan nås både inne i och utanför klassen. De som är skyddade ärvs men kan bara nås inifrån parent eller child class. De som är privata kan bara nås inifrån parent class och ärvs inte vidare. 
+
+    ”Komposition” är ett begrepp inom objektorienterad programmering. Det kallas komposition när en klass innehåller objekt ifrån andra klasser.
+
+    ”Interface” är en slags mall. Det specificerar regler för vad ett objekt måste implementera men innehåller ingen implementering. Jag kan tycka att det är lite likt ”abstract class” som finns i Python.
+
+    ”Trait” är en konstruktion inom PHP med en samling metoder som kan användas av flera andra klasser. I PHP deklareras egenskaper med hjälp av nyckelordet ”trait” och kan användas i en klass med nyckelordet ”use”.
+
+
+    Jag skapade klasserna Card, CardGraphic, DeckOfCards och CardHand. CardGraphic ärver ifrån Card och det är CardGraphic jag sedan använder i min lösning. DeckOfCards och CardHand har liknande kod så jag funderade ett tag på om jag kunde använda mig av arv här men kom inte fram till någon vettig lösning så de får vara som de är i nuläget. CardHand använder sig dock av DeckOfCards när den ska dra kort.
+
+    Var gäller mina controllers så har jag en för korten i webbläsaren och en för APIet. Även dessa blev väldigt lika då de har liknande funktionalitet. Jag funderade även på arv här men kom fram till att det blir svårt att lösa på ett bra sätt.
+
+    Förbättringspotentialen jag ser är väl framför allt att jag kanske skulle vilja ha in bilder på kort i stället för symboler via UTF-8. 
+
+
+
+    Jag har gjort UML-diagram tidigare i Python. Men det var bra med en uppfräschning. Om jag skulle bli bättre på arbetssättet så tror jag definitivt att detta kan underlätta för planering och strukturering, framför allt när det handlar om lite större projekt.
+
+
+    Jag har några TILs från detta kursmoment. Jag har lärt mig hur jag dödar processer i terminalen när servern hänger sig. Jag har blivit bättre på att förstå flödet när man arbetar med Git-repon. Jag har även märkt att förändringar i koden markeras i editorn. Jag har även blivit bättre på att skapa klasser i PHP.
 {% endapply %}
