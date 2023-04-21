@@ -19,8 +19,6 @@ class DeckOfCards
 
     public function __construct()
     {
-        // $this->deck = [];
-
         foreach (self::SUITS as $suit) {
             foreach (self::VALUES as $value) {
                 $this->deck[] = new CardGraphic($value, $suit);
