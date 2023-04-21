@@ -94,7 +94,7 @@ class ReportControllerJson extends AbstractController
 
         $deck = self::getSessionDeck($session);
         $deck->shuffle();
-        $hand = new CardHand;
+        $hand = new CardHand();
         $hand->draw(1, $deck);
         $data = [
             'hand'=>$hand->getString(),
@@ -114,7 +114,7 @@ class ReportControllerJson extends AbstractController
     {
         $deck = self::getSessionDeck($session);
         $deck->shuffle();
-        $hand = new CardHand;
+        $hand = new CardHand();
         $hand->draw($num, $deck);
         $data = [
             'hand'=>$hand->getString(),
@@ -137,7 +137,7 @@ class ReportControllerJson extends AbstractController
 
         $data = [];
         for ($i = 1; $i <= $players; $i++) {
-            $hand = new CardHand;
+            $hand = new CardHand();
             $hand->draw($cards, $deck);
             $data["player{$i}"] = $hand->getString();
         }
@@ -157,7 +157,7 @@ class ReportControllerJson extends AbstractController
     {
         $deck = $session->get('deck');
         if (!$deck) {
-            $deck = new DeckOfCards;
+            $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
 

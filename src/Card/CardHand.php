@@ -20,7 +20,7 @@ class CardHand
     }
 
     public function draw(int $number, DeckOfCards $deck): void
-    { 
+    {
         $this->hand = $deck->draw(min($number, $deck->getNumberCards()));
     }
 

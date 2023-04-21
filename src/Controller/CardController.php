@@ -63,7 +63,7 @@ class CardController extends AbstractController
 
         $deck = self::getSessionDeck($session);
         $deck->shuffle();
-        $hand = new CardHand;
+        $hand = new CardHand();
         $hand->draw(1, $deck);
         $data = [
             'title'=>'Draw Cards',
@@ -80,7 +80,7 @@ class CardController extends AbstractController
     {
         $deck = self::getSessionDeck($session);
         $deck->shuffle();
-        $hand = new CardHand;
+        $hand = new CardHand();
         $hand->draw($num, $deck);
         $data = [
             'title'=>'Draw Cards',
@@ -100,7 +100,7 @@ class CardController extends AbstractController
 
         $hands = [];
         for ($i = 0; $i < $players; $i++) {
-            $hand = new CardHand;
+            $hand = new CardHand();
             $hand->draw($cards, $deck);
             $hands[] = $hand;
         }
@@ -119,7 +119,7 @@ class CardController extends AbstractController
     {
         $deck = $session->get('deck');
         if (!$deck) {
-            $deck = new DeckOfCards;
+            $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
 

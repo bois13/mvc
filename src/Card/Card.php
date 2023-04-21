@@ -14,15 +14,18 @@ class Card
         $this->suit = $suit;
     }
 
-    public function getValue() {
+    public function getValue()
+    {
         return $this->value;
     }
 
-    public function getRank() {
+    public function getRank()
+    {
         return array_search($this->value, self::RANK) + 1;
     }
 
-    public function getSuit() {
+    public function getSuit()
+    {
         return $this->suit;
     }
 

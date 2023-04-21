@@ -2,8 +2,8 @@
 
 namespace App\Card;
 
-
-class CardGraphic extends Card {
+class CardGraphic extends Card
+{
     private const REPRESENTATION = [
         'clubs' => "\xE2\x99\xA3",
         'diamonds' => "\xE2\x99\xA6",
@@ -21,4 +21,3 @@ class CardGraphic extends Card {
         return '[' . $this->value . self::REPRESENTATION[$this->suit] . ']';
     }
 }
-

@@ -28,7 +28,7 @@ class DeckOfCards
 
     public function sort(): void
     {
-        usort($this->deck, function($a, $b) {
+        usort($this->deck, function ($a, $b) {
             if ($a->getSuit() == $b->getSuit()) {
                 return array_search($a->getValue(), self::VALUES) - array_search($b->getValue(), self::VALUES);
             } else {
@@ -55,7 +55,7 @@ class DeckOfCards
     public function draw(int $num=1): array
     {
         $cards = [];
-        for ($i=0; $i < $num; $i++) { 
+        for ($i=0; $i < $num; $i++) {
             $cards[] = array_shift($this->deck);
         }
         return $cards;
@@ -75,4 +75,3 @@ class DeckOfCards
         return implode('', $this->getArray());
     }
 }
-
